@@ -1,12 +1,14 @@
-import React from 'react'
-import DataDisplay from '../components/DataDisplay'
+import React from 'react';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 
-type Props = {}
-
-export default function about({}: Props) {
+const Homepage: React.FC = () => {
   return (
     <div>
-        <DataDisplay />
-        about</div>
-  )
-}
+      <Header />
+      <Sidebar />
+    </div>
+  );
+};
+
+export default Homepage;

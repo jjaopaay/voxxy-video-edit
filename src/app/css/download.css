@@ -1,0 +1,16 @@
+
+.download-component {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  .download-component h2 {
+    margin-top: 0;
+  }
+  
+  .download-component p {
+    font-size: 16px;
+    color: #333;
+  }
+  
