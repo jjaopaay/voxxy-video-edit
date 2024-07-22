@@ -2,66 +2,79 @@
 
 import React, { useState } from 'react';
 import { IconDownload, IconTemplate, IconPhoto, IconPhotoVideo, IconLetterT, IconMusic, IconTransitionRight } from '@tabler/icons-react';
-import '../css/Sidebar.css'; 
-import DownloadComponent from '../components/Download';
-
+import '../css/Sidebar.css';
+import Import from '../components/Import'; // Adjust import based on your actual file structure
 
 const Sidebar: React.FC<{ onSelect: (component: string) => void }> = ({ onSelect }) => {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
 
   const handleIconClick = (iconName: string) => {
     setActiveIcon(iconName);
-    onSelect(iconName); 
   };
 
   return (
-
-    <div className="sidebar">
-      <div className="sidebar-content">
-        <ul>
-          <li
-            className= { activeIcon === 'photo' ? 'active' : ''}
-            onClick={() => handleIconClick('photo')}>
-              <IconDownload className="icon" />
-          </li>
-          <li            
-            className={activeIcon === 'photo' ? 'active' : ''}
-            onClick={() => handleIconClick('photo')}>
+    <>
+      <div className="sidebar">
+        <div className="sidebar-content">
+          <div
+            className={`menu-item ${activeIcon === 'import' ? 'active' : ''}`}
+            onClick={() => handleIconClick('import')}
+          >
+            <IconDownload className="icon" />
+            <span>Import</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'template' ? 'active' : ''}`}
+            onClick={() => handleIconClick('template')}
+          >
             <IconTemplate className="icon" />
-          </li>
-          <li
-            className={activeIcon === 'photo' ? 'active' : ''}
-            onClick={() => handleIconClick('photo')}
+            <span>Template</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'image' ? 'active' : ''}`}
+            onClick={() => handleIconClick('image')}
           >
             <IconPhoto className="icon" />
-          </li>
-          <li
-            className={activeIcon === 'photo-video' ? 'active' : ''}
-            onClick={() => handleIconClick('photo-video')}
+            <span>Image</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'effect' ? 'active' : ''}`}
+            onClick={() => handleIconClick('effect')}
           >
             <IconPhotoVideo className="icon" />
-          </li>
-          <li
-            className={activeIcon === 'letter' ? 'active' : ''}
-            onClick={() => handleIconClick('letter')}
+            <span>Effect</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'text' ? 'active' : ''}`}
+            onClick={() => handleIconClick('text')}
           >
             <IconLetterT className="icon" />
-          </li>
-          <li
-            className={activeIcon === 'music' ? 'active' : ''}
-            onClick={() => handleIconClick('music')}
+            <span>Text</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'audio' ? 'active' : ''}`}
+            onClick={() => handleIconClick('audio')}
           >
             <IconMusic className="icon" />
-          </li>
-          <li
-            className={activeIcon === 'transition' ? 'active' : ''}
+            <span>Audio</span>
+          </div>
+          <div
+            className={`menu-item ${activeIcon === 'transition' ? 'active' : ''}`}
             onClick={() => handleIconClick('transition')}
           >
             <IconTransitionRight className="icon" />
-          </li>
-        </ul>
+            <span>Transition</span>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {activeIcon && (
+        <div className="tool-area">
+          {activeIcon === 'import' && <Import />}
+          {/* Add additional components for other icons as needed */}
+        </div>
+      )}
+    </>
   );
 };
 
