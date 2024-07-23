@@ -82,7 +82,7 @@ const Sidebar: React.FC<{ onSelect: (component: string) => void }> = ({ onSelect
           {activeIcon === 'template' && <Template />}
           {activeIcon === 'image' && <Image />}
           {activeIcon === 'effect' && <Effect />}
-          {activeIcon === 'text' && <Text />}
+          {activeIcon === 'text' &&   <Text />}
           {activeIcon === 'audio' && <Audio />}
           {activeIcon === 'transition' && <Transition />}
         </div>
